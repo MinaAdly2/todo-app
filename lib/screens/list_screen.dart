@@ -45,9 +45,7 @@ class ListScreen extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsetsDirectional.only(
-              start: 20,
-              top: 30,
-            ),
+                start: 20, top: 30, bottom: 10),
             child: Text(
               'Whats on your mind?',
               style: TextStyle(
@@ -84,6 +82,9 @@ class ListScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
             context: context,
             builder: (context) => CustomBottomSheet(),
           );

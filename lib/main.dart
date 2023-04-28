@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+//import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:todo_mmd/blocs/app_theme_bloc/app_theme_bloc.dart';
 import 'package:todo_mmd/blocs/home_bloc/home_bloc.dart';
 import 'package:todo_mmd/screens/home_screen.dart';
@@ -41,6 +42,28 @@ class ToDoApp extends StatelessWidget {
               HomeScreen.id: (context) => HomeScreen(),
             },
             initialRoute: SplashViewScreen.id,
+/*            localizationsDelegates: [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: [
+              Locale('en'),
+              Locale('ar'),
+            ],
+            localeResolutionCallback: (currentLang, supportLang){
+              if (currentLang != null){
+                for(Locale locale in supportLang)
+                  {
+                    if(locale.languageCode == currentLang.languageCode)
+                      {
+                        return currentLang;
+                      }
+                  }
+              }else {
+                return supportLang.first;
+              }
+            },*/
           );
         },
       ),

@@ -46,6 +46,7 @@ class GridScreen extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(
               start: 20,
               top: 30,
+              bottom: 10,
             ),
             child: Text(
               'Whats on your mind?',
@@ -86,6 +87,9 @@ class GridScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
             context: context,
             builder: (context) => CustomBottomSheet(),
           );
