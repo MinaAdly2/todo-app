@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_mmd/blocs/home_bloc/home_bloc.dart';
 import 'package:todo_mmd/main.dart';
 import 'package:todo_mmd/models/task_model.dart';
 import 'package:todo_mmd/theme/theme_data_dark.dart';
@@ -54,7 +56,10 @@ class TaskItemList extends StatelessWidget {
             ),
           ),
           trailing: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<HomeBloc>(context)
+                  .add(DeleteItemEvent(taskModel));
+            },
             icon: const Icon(
               Icons.delete,
               color: Color(0xffFFFFFF),
@@ -129,7 +134,10 @@ class TaskItemGrid extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        BlocProvider.of<HomeBloc>(context)
+                            .add(DeleteItemEvent(taskModel));
+                      },
                       icon: const Icon(
                         Icons.delete,
                         color: Color(0xffFFFFFF),

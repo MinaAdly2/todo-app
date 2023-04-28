@@ -13,6 +13,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<GridEvent>(_gridEvent);
     on<ListEvent>(_listEvent);
     on<SaveTaskEvent>(_saveTaskEvent);
+    on<DeleteItemEvent>(_deleteItemEvent);
   }
 
   FutureOr<void> _gridEvent(GridEvent event, Emitter<HomeState> emit) {
@@ -32,8 +33,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
+  FutureOr<void> _deleteItemEvent(
+      DeleteItemEvent event, Emitter<HomeState> emit) {
+    try {
+      deleteTask(taskModel: event.taskModel);
+      emit(DeleteItemSuccessState());
+    } catch (e) {
+      emit(FailureState());
+    }
+  }
+
   void saveTask({required String title, required String task}) {
     tasksList.add(TaskModel(title: title, task: task));
     debugPrint('Save Successfully');
+  }
+
+  void deleteTask({required TaskModel taskModel}) {
+    int index = tasksList.indexOf(taskModel);
+    tasksList.removeAt(index);
   }
 }

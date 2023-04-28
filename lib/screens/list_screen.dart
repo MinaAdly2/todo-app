@@ -47,7 +47,7 @@ class ListScreen extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(
                 start: 20, top: 30, bottom: 10),
             child: Text(
-              'Whats on your mind?',
+              "What's on your mind?",
               style: TextStyle(
                 color:
                     isDark ? const Color(0xFFFFFFFF) : const Color(0xFFF97D7D),
