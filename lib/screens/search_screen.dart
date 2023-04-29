@@ -42,7 +42,7 @@ class SearchScreen extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     List<TaskModel> filteredTasks = tasksList
-        .where((element) => element.title.toLowerCase().startsWith(query))
+        .where((element) => element.title.toLowerCase().contains(query))
         .toList();
     return Padding(
       padding: const EdgeInsets.only(

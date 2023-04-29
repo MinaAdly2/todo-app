@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:todo_mmd/blocs/app_theme_bloc/app_theme_bloc.dart';
 import 'package:todo_mmd/blocs/home_bloc/home_bloc.dart';
+import 'package:todo_mmd/blocs/task_bloc/task_bloc.dart';
 import 'package:todo_mmd/screens/home_screen.dart';
 import 'package:todo_mmd/screens/splash_view_screen.dart';
 import 'package:todo_mmd/simple_bloc_observer.dart';
@@ -24,6 +25,7 @@ class ToDoApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => HomeBloc()),
         BlocProvider(create: (context) => AppThemeBloc()),
+        BlocProvider(create: (context) => TaskBloc()),
       ],
       child: BlocConsumer<AppThemeBloc, AppThemeState>(
         listener: (context, state) {

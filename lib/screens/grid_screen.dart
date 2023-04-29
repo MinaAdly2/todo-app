@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_mmd/blocs/app_theme_bloc/app_theme_bloc.dart';
 import 'package:todo_mmd/blocs/home_bloc/home_bloc.dart';
+import 'package:todo_mmd/blocs/task_bloc/task_bloc.dart';
 import 'package:todo_mmd/main.dart';
 import 'package:todo_mmd/models/tasks_list.dart';
 import 'package:todo_mmd/screens/search_screen.dart';
@@ -59,27 +60,32 @@ class GridScreen extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(
-                start: 20,
-                end: 20,
-                top: 30,
-              ),
-              child: GridView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: tasksList.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 0.94,
+          BlocBuilder<TaskBloc, TaskState>(
+            builder: (context, state) {
+              return Expanded(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: 20,
+                    end: 20,
+                    top: 30,
+                  ),
+                  child: GridView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: tasksList.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 0.94,
+                    ),
+                    itemBuilder: (context, index) => TaskItemGrid(
+                      taskModel: tasksList[index],
+                    ),
+                  ),
                 ),
-                itemBuilder: (context, index) => TaskItemGrid(
-                  taskModel: tasksList[index],
-                ),
-              ),
-            ),
+              );
+            },
           ),
         ],
       ),
@@ -91,7 +97,9 @@ class GridScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             context: context,
-            builder: (context) => CustomBottomSheet(),
+            builder: (context) {
+              return CustomBottomSheet();
+            },
           );
         },
         child: const Icon(Icons.add),

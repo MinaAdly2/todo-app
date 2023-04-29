@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_mmd/blocs/app_theme_bloc/app_theme_bloc.dart';
 import 'package:todo_mmd/blocs/home_bloc/home_bloc.dart';
+import 'package:todo_mmd/blocs/task_bloc/task_bloc.dart';
 import 'package:todo_mmd/main.dart';
 import 'package:todo_mmd/models/tasks_list.dart';
 import 'package:todo_mmd/screens/search_screen.dart';
@@ -57,24 +58,28 @@ class ListScreen extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(
-                start: 22,
-                end: 39,
-                top: 30,
-              ),
-              child: ListView.separated(
-                itemCount: tasksList.length,
-                itemBuilder: (context, index) =>
-                    TaskItemList(taskModel: tasksList[index]),
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: 15,
-                  );
-                },
-              ),
-            ),
+          BlocBuilder<TaskBloc, TaskState>(
+            builder: (context, state) {
+              return Expanded(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: 22,
+                    end: 39,
+                    top: 30,
+                  ),
+                  child: ListView.separated(
+                    itemCount: tasksList.length,
+                    itemBuilder: (context, index) =>
+                        TaskItemList(taskModel: tasksList[index]),
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const SizedBox(
+                        height: 15,
+                      );
+                    },
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -86,7 +91,9 @@ class ListScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             context: context,
-            builder: (context) => CustomBottomSheet(),
+            builder: (context) {
+              return CustomBottomSheet();
+            },
           );
         },
         child: const Icon(Icons.add),

@@ -7,9 +7,3 @@ class HomeInitialState extends HomeState {}
 class HomeGridState extends HomeState {}
 
 class HomeListState extends HomeState {}
-
-class DeleteItemSuccessState extends HomeState {}
-
-class SaveTaskSuccessState extends HomeState {}
-
-class FailureState extends HomeState {}
