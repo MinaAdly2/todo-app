@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_mmd/app_localization.dart';
 import 'package:todo_mmd/blocs/app_theme_bloc/app_theme_bloc.dart';
 import 'package:todo_mmd/blocs/home_bloc/home_bloc.dart';
 import 'package:todo_mmd/blocs/task_bloc/task_bloc.dart';
@@ -26,8 +27,8 @@ class GridScreen extends StatelessWidget {
             Icons.list,
           ),
         ),
-        title: const Text(
-          'My Tasks',
+        title: Text(
+          AppLocalizations.of(context)!.translate('My Tasks'),
         ),
         actions: [
           IconButton(
@@ -50,7 +51,7 @@ class GridScreen extends StatelessWidget {
               bottom: 10,
             ),
             child: Text(
-              "What's on your mind?",
+              AppLocalizations.of(context)!.translate("What's on your mind?"),
               style: TextStyle(
                 color:
                     isDark ? const Color(0xFFFFFFFF) : const Color(0xFFF97D7D),
@@ -107,9 +108,9 @@ class GridScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         items: [
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            label: AppLocalizations.of(context)!.translate('Home'),
           ),
           BottomNavigationBarItem(
             icon: IconButton(
@@ -124,7 +125,9 @@ class GridScreen extends StatelessWidget {
                   ? const Icon(Icons.light_mode_outlined)
                   : const Icon(Icons.dark_mode_outlined),
             ),
-            label: isDark ? 'Day Light' : 'Night Light',
+            label: isDark
+                ? AppLocalizations.of(context)!.translate('Day Light')
+                : AppLocalizations.of(context)!.translate('Night Light'),
           ),
         ],
       ),

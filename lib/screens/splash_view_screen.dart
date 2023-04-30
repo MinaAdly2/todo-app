@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_mmd/app_localization.dart';
 import 'package:todo_mmd/screens/home_screen.dart';
 
 class SplashViewScreen extends StatefulWidget {
@@ -82,9 +83,9 @@ class _SplashViewScreenState extends State<SplashViewScreen> {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  'Good',
+                  AppLocalizations.of(context)!.translate('Good'),
                   style: TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontSize: 15,
@@ -102,9 +103,9 @@ class _SplashViewScreenState extends State<SplashViewScreen> {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  'Consistency',
+                  AppLocalizations.of(context)!.translate('Consistency'),
                   style: TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontSize: 20,

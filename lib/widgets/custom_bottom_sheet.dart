@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_mmd/app_localization.dart';
 import 'package:todo_mmd/blocs/task_bloc/task_bloc.dart';
 import 'package:todo_mmd/widgets/custom_button.dart';
 import 'package:todo_mmd/widgets/custom_text_form_field.dart';
@@ -33,13 +34,13 @@ class CustomBottomSheet extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsetsDirectional.only(
               top: 20,
               start: 16,
             ),
             child: Text(
-              'Todo Title',
+              AppLocalizations.of(context)!.translate('Todo Title'),
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
@@ -54,20 +55,20 @@ class CustomBottomSheet extends StatelessWidget {
               end: 60,
             ),
             child: CustomTextFormField(
-              hint: 'Todo Title',
+              hint: AppLocalizations.of(context)!.translate('Todo Title'),
               onChange: (data) {
                 title = data;
                 debugPrint(data);
               },
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsetsDirectional.only(
               top: 20,
               start: 16,
             ),
             child: Text(
-              'Task',
+              AppLocalizations.of(context)!.translate('Task'),
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
@@ -82,7 +83,8 @@ class CustomBottomSheet extends StatelessWidget {
               end: 60,
             ),
             child: CustomTextFormField(
-              hint: 'Write anything in your mind',
+              hint: AppLocalizations.of(context)!
+                  .translate('Write anything in your mind'),
               onChange: (data) {
                 task = data;
                 debugPrint(data);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_mmd/app_localization.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
@@ -22,9 +23,9 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             color: const Color(0xFF9D1212),
           ),
-          child: const Center(
+          child: Center(
             child: Text(
-              'Save',
+              AppLocalizations.of(context)!.translate('Save'),
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontSize: 30,
