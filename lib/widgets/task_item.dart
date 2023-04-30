@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo_mmd/blocs/task_bloc/task_bloc.dart';
 import 'package:todo_mmd/main.dart';
 import 'package:todo_mmd/models/task_model.dart';
@@ -61,9 +62,9 @@ class TaskItemList extends StatelessWidget {
                   .add(DeleteTaskEvent(taskModel: taskModel));
             },
             icon: const Icon(
-              Icons.delete,
+              FontAwesomeIcons.trashCan,
               color: Color(0xffFFFFFF),
-              size: 30,
+              size: 28,
             ),
           ),
         ),
@@ -139,9 +140,9 @@ class TaskItemGrid extends StatelessWidget {
                             .add(DeleteTaskEvent(taskModel: taskModel));
                       },
                       icon: const Icon(
-                        Icons.delete,
+                        FontAwesomeIcons.trashCan,
                         color: Color(0xffFFFFFF),
-                        size: 30,
+                        size: 28,
                       ))
                 ],
               ),

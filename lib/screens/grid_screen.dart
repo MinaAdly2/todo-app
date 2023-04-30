@@ -27,7 +27,7 @@ class GridScreen extends StatelessWidget {
             BlocProvider.of<HomeBloc>(context).add(ListEvent());
           },
           icon: const Icon(
-            Icons.list,
+            Icons.menu,
           ),
         ),
         title: Text(

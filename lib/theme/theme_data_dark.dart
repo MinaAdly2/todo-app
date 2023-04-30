@@ -8,7 +8,7 @@ ThemeData getThemeDataDark() {
       elevation: 0,
       centerTitle: true,
       backgroundColor: Colors.black,
-      iconTheme: IconThemeData(color: Color(0xffFFFFFF), size: 32),
+      iconTheme: IconThemeData(color: Color(0xffFFFFFF), size: 30,),
       titleTextStyle: TextStyle(
         color: Color(0xffFFFFFF),
         fontSize: 32,
@@ -17,17 +17,16 @@ ThemeData getThemeDataDark() {
       ),
       actionsIconTheme: IconThemeData(
         color: Color(0xffFFFFFF),
-        size: 32,
+        size: 30,
       ),
     ),
-
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color(0xFF0E0D0E),
       selectedItemColor: Color(0xFFFF0000),
       unselectedItemColor: Color(0xFFFFFFFF),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Color(0xFFFF4444),
+      backgroundColor: Color(0xFFBF0000),
     ),
   );
 }

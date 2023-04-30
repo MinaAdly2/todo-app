@@ -6,6 +6,7 @@ import 'package:todo_mmd/blocs/home_bloc/home_bloc.dart';
 import 'package:todo_mmd/blocs/task_bloc/task_bloc.dart';
 import 'package:todo_mmd/main.dart';
 import 'package:todo_mmd/models/tasks_list.dart';
+import 'package:todo_mmd/resources/app_font_icons.dart';
 import 'package:todo_mmd/screens/search_screen.dart';
 import 'package:todo_mmd/widgets/custom_button.dart';
 import 'package:todo_mmd/widgets/custom_text_form_field.dart';
@@ -28,7 +29,7 @@ class ListScreen extends StatelessWidget {
             BlocProvider.of<HomeBloc>(context).add(GridEvent());
           },
           icon: const Icon(
-            Icons.grid_view_rounded,
+            AppFontIcons.gridview,
           ),
         ),
         title: Text(

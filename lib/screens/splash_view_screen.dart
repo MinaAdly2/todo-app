@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_mmd/app_localization.dart';
+import 'package:todo_mmd/resources/app_font_icons.dart';
 import 'package:todo_mmd/screens/home_screen.dart';
 
 class SplashViewScreen extends StatefulWidget {
@@ -68,17 +69,17 @@ class _SplashViewScreenState extends State<SplashViewScreen> {
           ),
           Padding(
             padding: const EdgeInsetsDirectional.only(
-              top: 80,
+              top: 75,
             ),
             child: Image.asset(
               'assets/images/Line 2.png',
               width: 343,
-              height: 50,
+              height: 58,
             ),
           ),
           Padding(
             padding: const EdgeInsetsDirectional.only(
-              start: 60,
+              start: 55,
               top: 40,
             ),
             child: Row(
@@ -87,7 +88,7 @@ class _SplashViewScreenState extends State<SplashViewScreen> {
                 Text(
                   'Good'.translate(context),
                   style: TextStyle(
-                    color: Color(0xFFFFFFFF),
+                    color: Color(0xFFFFFFFF).withOpacity(0.5),
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
                     fontFamily: 'RobotoRegular',
@@ -112,6 +113,19 @@ class _SplashViewScreenState extends State<SplashViewScreen> {
                     fontWeight: FontWeight.w800,
                     fontFamily: 'RobotoRegular',
                   ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsetsDirectional.only(end: 32),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Icon(
+                  AppFontIcons.vector,
+                  color: Color(0xFFFFFFFF).withOpacity(0.84),
+                  size: 50,
                 ),
               ],
             ),
