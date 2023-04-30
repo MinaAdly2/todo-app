@@ -8,8 +8,9 @@ import 'package:todo_mmd/widgets/custom_text_form_field.dart';
 // ignore: must_be_immutable
 class CustomBottomSheet extends StatelessWidget {
   CustomBottomSheet({super.key});
-  String? title;
-  String? task;
+
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController taskController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,6 @@ class CustomBottomSheet extends StatelessWidget {
       key: formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
         children: [
           Center(
             child: Padding(
@@ -56,10 +56,7 @@ class CustomBottomSheet extends StatelessWidget {
             ),
             child: CustomTextFormField(
               hint: 'Todo Title'.translate(context),
-              onChange: (data) {
-                title = data;
-                debugPrint(data);
-              },
+              controller: titleController,
             ),
           ),
           Padding(
@@ -84,17 +81,14 @@ class CustomBottomSheet extends StatelessWidget {
             ),
             child: CustomTextFormField(
               hint: 'Write anything in your mind'.translate(context),
-              onChange: (data) {
-                task = data;
-                debugPrint(data);
-              },
+              controller: taskController,
             ),
           ),
           CustomButton(
             onTap: () {
               if (formKey.currentState!.validate()) {
-                BlocProvider.of<TaskBloc>(context)
-                    .add(SaveTaskEvent(title: title!, task: task!));
+                BlocProvider.of<TaskBloc>(context).add(SaveTaskEvent(
+                    title: titleController.text, task: taskController.text));
               }
             },
           ),

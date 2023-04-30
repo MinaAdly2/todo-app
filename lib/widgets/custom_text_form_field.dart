@@ -5,11 +5,11 @@ class CustomTextFormField extends StatelessWidget {
   CustomTextFormField({
     super.key,
     required this.hint,
-    required this.onChange,
+    this.onChanged,
     this.controller,
   });
   final String hint;
-  final void Function(String)? onChange;
+  final void Function(String)? onChanged;
   TextEditingController? controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CustomTextFormField extends StatelessWidget {
           fontFamily: 'InterRegular',
         ),
       ),
-      onChanged: onChange,
+      onChanged: onChanged,
       validator: (String? data) {
         if (data?.isEmpty ?? true) {
           return 'Field is required';
