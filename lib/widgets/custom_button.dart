@@ -25,7 +25,7 @@ class CustomButton extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              AppLocalizations.of(context)!.translate('Save'),
+              'Save'.translate(context),
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontSize: 30,

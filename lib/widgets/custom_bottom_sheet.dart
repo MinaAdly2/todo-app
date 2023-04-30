@@ -40,7 +40,7 @@ class CustomBottomSheet extends StatelessWidget {
               start: 16,
             ),
             child: Text(
-              AppLocalizations.of(context)!.translate('Todo Title'),
+              'Todo Title'.translate(context),
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
@@ -55,7 +55,7 @@ class CustomBottomSheet extends StatelessWidget {
               end: 60,
             ),
             child: CustomTextFormField(
-              hint: AppLocalizations.of(context)!.translate('Todo Title'),
+              hint: 'Todo Title'.translate(context),
               onChange: (data) {
                 title = data;
                 debugPrint(data);
@@ -68,7 +68,7 @@ class CustomBottomSheet extends StatelessWidget {
               start: 16,
             ),
             child: Text(
-              AppLocalizations.of(context)!.translate('Task'),
+              'Task'.translate(context),
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
@@ -83,8 +83,7 @@ class CustomBottomSheet extends StatelessWidget {
               end: 60,
             ),
             child: CustomTextFormField(
-              hint: AppLocalizations.of(context)!
-                  .translate('Write anything in your mind'),
+              hint: 'Write anything in your mind'.translate(context),
               onChange: (data) {
                 task = data;
                 debugPrint(data);

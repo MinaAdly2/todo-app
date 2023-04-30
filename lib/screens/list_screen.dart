@@ -29,7 +29,7 @@ class ListScreen extends StatelessWidget {
           ),
         ),
         title: Text(
-          AppLocalizations.of(context)!.translate('My Tasks'),
+          'My Tasks'.translate(context),
         ),
         actions: [
           IconButton(
@@ -49,7 +49,7 @@ class ListScreen extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(
                 start: 20, top: 30, bottom: 10),
             child: Text(
-              AppLocalizations.of(context)!.translate("What's on your mind?"),
+              "What's on your mind?".translate(context),
               style: TextStyle(
                 color:
                     isDark ? const Color(0xFFFFFFFF) : const Color(0xFFF97D7D),
@@ -104,7 +104,7 @@ class ListScreen extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
-            label: AppLocalizations.of(context)!.translate('Home'),
+            label: 'Home'.translate(context),
           ),
           BottomNavigationBarItem(
             icon: IconButton(
@@ -120,8 +120,8 @@ class ListScreen extends StatelessWidget {
                   : const Icon(Icons.dark_mode_outlined),
             ),
             label: isDark
-                ? AppLocalizations.of(context)!.translate('Day Light')
-                : AppLocalizations.of(context)!.translate('Night Light'),
+                ? 'Day Light'.translate(context)
+                : 'Night Light'.translate(context),
           ),
         ],
       ),

@@ -85,7 +85,7 @@ class _SplashViewScreenState extends State<SplashViewScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.translate('Good'),
+                  'Good'.translate(context),
                   style: TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontSize: 15,
@@ -105,7 +105,7 @@ class _SplashViewScreenState extends State<SplashViewScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.translate('Consistency'),
+                  'Consistency'.translate(context),
                   style: TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontSize: 20,

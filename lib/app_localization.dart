@@ -46,3 +46,9 @@ class _AppLocalizationsDelegate
     return false;
   }
 }
+
+extension Translate on String {
+  String translate(BuildContext context) {
+    return AppLocalizations.of(context)!.translate(this);
+  }
+}
