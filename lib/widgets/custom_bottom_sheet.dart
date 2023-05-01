@@ -7,11 +7,16 @@ import 'package:todo_mmd/widgets/custom_text_form_field.dart';
 
 // ignore: must_be_immutable
 class CustomBottomSheet extends StatelessWidget {
-  CustomBottomSheet({super.key});
+  const CustomBottomSheet({
+    super.key,
+    required this.formKey,
+    required this.titleController,
+    required this.taskController,
+  });
+  final GlobalKey<FormState> formKey;
+  final TextEditingController titleController;
+  final TextEditingController taskController;
 
-  final TextEditingController titleController = TextEditingController();
-  final TextEditingController taskController = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -89,6 +94,7 @@ class CustomBottomSheet extends StatelessWidget {
               if (formKey.currentState!.validate()) {
                 BlocProvider.of<TaskBloc>(context).add(SaveTaskEvent(
                     title: titleController.text, task: taskController.text));
+                Navigator.pop(context);
               }
             },
           ),
