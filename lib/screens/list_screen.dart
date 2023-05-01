@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_mmd/app_localization.dart';
 import 'package:todo_mmd/blocs/app_theme_bloc/app_theme_bloc.dart';
 import 'package:todo_mmd/blocs/home_bloc/home_bloc.dart';
+import 'package:todo_mmd/blocs/language_bloc/language_bloc.dart';
 import 'package:todo_mmd/blocs/task_bloc/task_bloc.dart';
 import 'package:todo_mmd/main.dart';
 import 'package:todo_mmd/models/tasks_list.dart';
@@ -34,6 +35,30 @@ class ListScreen extends StatelessWidget {
           'My Tasks'.translate(context),
         ),
         actions: [
+          Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              vertical: 8,
+              horizontal: 8,
+            ),
+            child: MaterialButton(
+              shape: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+              ),
+              onPressed: () {
+                BlocProvider.of<LanguageBloc>(context)
+                    .add(ChangeLanguageEvent());
+              },
+              color: isDark ? Color(0xffFFFFFF) : Color(0xffFA6262),
+              child: Text(
+                'English'.translate(context),
+                style: TextStyle(
+                  color: isDark ? Colors.black : Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
           IconButton(
             onPressed: () {
               showSearch(context: context, delegate: SearchScreen());
